@@ -1,28 +1,31 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import NavigationBar from "./components/NavigationBar";
-import Homepage from "./components/pages/Homepage";
-import About from "./components/pages/About";
-import Activity from "./components/pages/Activity";
-import StudentService from "./components/pages/StudentService";
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Container from '@mui/material/Container';
+
+import NavigationBar from './components/NavigationBar';
+import Footer from './components/Footer';
+
+import Home from './routes/Home';
+import About from './routes/About';
+import Activity from './routes/Activity';
+import StudentService from './routes/StudentService';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <NavigationBar />
-        <Switch>
-          <Route exact path="/" component={Homepage}></Route>
-          <Route exact path="/about" component={About}></Route>
-          <Route exact path="/activity" component={Activity}></Route>
-          <Route
-            exact
-            path="/studentservice"
-            component={StudentService}
-          ></Route>
-        </Switch>
-      </BrowserRouter>
-    </div>
+    <Container maxWidth="lg">
+      <div className="App">
+        <BrowserRouter>
+          <NavigationBar />
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/about" component={About}/>
+            <Route exact path="/activity" component={Activity}/>
+            <Route exact path="/studentservice" component={StudentService}/>
+          </Switch>
+          <Footer />
+        </BrowserRouter>
+      </div>
+    </Container>
   );
 }
 
